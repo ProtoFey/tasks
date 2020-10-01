@@ -7,11 +7,16 @@ public class Task3 {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
         int count = 0;
+        int result = 0;
         while (n < 100) {
-            while (n > 9) {
-
+            while (n > 0) {
+                count += n % 10;
+                n = n / 10;
             }
+            n = in.nextInt();
+            result += count;
+            count = 0;
         }
-        System.out.println(count);
+        System.out.println(result);
     }
 }
