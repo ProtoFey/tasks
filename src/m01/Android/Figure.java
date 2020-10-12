@@ -11,8 +11,17 @@ public class Figure {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Scanner in = new Scanner(System.in);
 
-        Point point = new Point(1,2);
-        point.getPoint();
+        Square square = new Square(5,5,6);
+        System.out.println(square);
+        System.out.println(square.getArea());
+
+        Circle circle = new Circle(5,5,3);
+        System.out.println(circle);
+        System.out.println(circle.getArea());
+
+        Triangle triangle = new Triangle(new Point(2, 3), new Point(4, 2), new Point(1,5));
+        System.out.println(triangle);
+        System.out.println(triangle.getArea());
     }
 }
 
@@ -29,10 +38,10 @@ class Point extends Figure {
     }
     @Override
     public String toString() {
-        return "{" + x + ";" + y + "}" + " Цвет: " + color;
+        return "{" + x + ";" + y + "}";
     }
     public void getPoint() {
-        System.out.println("{" + x + ";" + y + "}" + " Цвет: " + color);
+        System.out.println("{" + x + ";" + y + "}");
     }
 }
 class Circle extends Figure {
@@ -47,8 +56,12 @@ class Circle extends Figure {
         this.center = new Point(x, y);
         this.radius = radius;
     }
-    public double getArea(float radius) {
-        return 2 * Math.PI * Math.pow(radius, 2);
+    public Circle(Point point, float radius) {
+        this.center = point;
+        this.radius = radius;
+    }
+    public String getArea() {
+        return "Площадь Михаила Круга: " + 2 * Math.PI * Math.pow(this.radius, 2);
     }
     @Override
     public String toString() {
@@ -70,6 +83,13 @@ class Square extends Figure {
         this.vertex = new Point(x, y);
         this.length = length;
     }
+    public Square(Point point, float length) {
+        this.vertex = point;
+        this.length = length;
+    }
+    public String getArea() {
+        return "Площадь квадрата: " + length*length;
+    }
     @Override
     public String toString() {
         return "Вершина " + vertex + "; Сторона: " + length + " Цвет: " + color;
@@ -81,6 +101,7 @@ class Square extends Figure {
 class Triangle extends Figure {
     Point vertex1, vertex2, vertex3;
 
+
     public Triangle() {
         this.vertex1 = new Point();
         this.vertex2 = new Point(0, 3);
@@ -90,13 +111,25 @@ class Triangle extends Figure {
         this.vertex1 = new Point(x1, y1);
         this.vertex2 = new Point(x2, y2);
         this.vertex3 = new Point(x3, y3);
-        double l1 = Math.sqrt(Math.pow(x1-x2, 2) + Math.pow(y1-y2, 2));
-        double l2 = Math.sqrt(Math.pow(x1-x3, 2) + Math.pow(y1-y3, 2));
-        double l3 = Math.sqrt(Math.pow(x2-x3, 2) + Math.pow(y2-y3, 2));
-        if (l1 + l2 < l3 || l2 + l3 < l1 || l3 + l1 < l2) {
-            System.out.println("Вы ввели не существующий треугольник");
-            System.out.println("Вы лохъ. Вызывайте заного треугольник");
-        }
+    }
+    public Triangle(Point point1, Point point2, Point point3) {
+        this.vertex1 = point1;
+        this.vertex2 = point2;
+        this.vertex3 = point3;
+    }
+    public Point getVertex1() {
+        return vertex1;
+    }
+    public Point getVertex2() {
+        return vertex2;
+    }
+    public Point getVertex3() {
+        return vertex3;
+    }
+
+    public String getArea() {
+        double pHalf = (l1+l2+l3) / 2;
+        return "Площадь треугольника: " + Math.sqrt(pHalf * (pHalf-l1) * (pHalf-l2) * (pHalf-l3));
     }
     @Override
     public String toString() {
