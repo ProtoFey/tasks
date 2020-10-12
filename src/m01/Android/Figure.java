@@ -12,7 +12,7 @@ public class Figure {
         Scanner in = new Scanner(System.in);
 
         Point point = new Point(1,2);
-        System.out.println(point);
+        point.getPoint();
     }
 }
 
@@ -29,10 +29,10 @@ class Point extends Figure {
     }
     @Override
     public String toString() {
-        return "{" + x + ";" + y + "}";
+        return "{" + x + ";" + y + "}" + " Цвет: " + color;
     }
     public void getPoint() {
-        System.out.println("{" + x + ";" + y + "}");
+        System.out.println("{" + x + ";" + y + "}" + " Цвет: " + color);
     }
 }
 class Circle extends Figure {
@@ -52,10 +52,10 @@ class Circle extends Figure {
     }
     @Override
     public String toString() {
-        return "Центр: " + center + " Радиус: " + radius;
+        return "Центр: " + center + " Радиус: " + radius + " Цвет: " + color;
     }
     public void getCircle() {
-        System.out.println("Центр: " + center + "; Радиус: " + radius);
+        System.out.println("Центр: " + center + "; Радиус: " + radius + " Цвет: " + color);
     }
 }
 class Square extends Figure {
@@ -72,10 +72,10 @@ class Square extends Figure {
     }
     @Override
     public String toString() {
-        return "Вершина " + vertex + "; Сторона: " + length;
+        return "Вершина " + vertex + "; Сторона: " + length + " Цвет: " + color;
     }
     public void getSquare() {
-        System.out.println("Вершина " + vertex + "; Сторона: " + length);
+        System.out.println("Вершина " + vertex + "; Сторона: " + length + " Цвет: " + color);
     }
 }
 class Triangle extends Figure {
@@ -100,9 +100,9 @@ class Triangle extends Figure {
     }
     @Override
     public String toString() {
-        return "Первая вершина: " + vertex1 + "; Вторая вершина " + vertex2 + "; Третья вершина" + vertex3;
+        return "Первая вершина: " + vertex1 + "; Вторая вершина " + vertex2 + "; Третья вершина" + vertex3 + " Цвет: " + color;
     }
     public void getTriangle() {
-        System.out.println("Первая вершина: " + vertex1 + "; Вторая вершина " + vertex2 + "; Третья вершина" + vertex3);
+        System.out.println("Первая вершина: " + vertex1 + "; Вторая вершина " + vertex2 + "; Третья вершина" + vertex3 + " Цвет: " + color);
     }
 }
