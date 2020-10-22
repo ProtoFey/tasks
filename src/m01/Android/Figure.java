@@ -7,4 +7,4 @@ import java.util.Scanner;
 public class Figure {
     String color = "Black";
 
-    }
+}
