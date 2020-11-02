@@ -25,10 +25,4 @@ public class TestN1 {
         if (count == 0)
             System.out.println(-1);
     }
-    short f(String a, int b) { return (short)b++;}
-    double f(double a, int b) {return a+b+"";}
-    void f(int d) { return d++;}
-    int f(float a, float b) { return a+b;}
-    float f(int a, double b) { return a+b;}
-    String f() { return "a+b";}
 }
